@@ -12,7 +12,7 @@ describe('Duck Duck Go search using basic Puppeteer', function () {
         browser = await puppeteer.launch({headless:true});
         page = await browser.newPage();
 
-        await page.goto('https://duckduckgo.com', {waitUntil: 'networkidle0'});
+        await page.goto('https://www.google.com/', {waitUntil: 'networkidle0'});
     });
 
     afterEach(async () => {
@@ -20,14 +20,14 @@ describe('Duck Duck Go search using basic Puppeteer', function () {
     });
 
     it('should be the correct url', async () => {
-        expect(await page.url()).to.eql('https://google.com/');
+        expect(await page.url()).to.eql('https://www.google.com/');
     });
 
     it('should have the correct page title', async () => {
-        expect(await page.title()).to.eql('DuckDuckGo — Privacy, simplified.');
+        expect(await page.title()).to.eql('Google');
     });
 
     it('should have the page open', async () => {
-        expect(await page.isClosed()).to.eql(true);
+        expect(await page.isClosed()).to.eql(false);
     });
 });
